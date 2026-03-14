@@ -1,0 +1,455 @@
+/* ============================================================
+ *  Catppuccin Mocha — Material You
+ *  Accents: Mauve #cba6f7 · Red #f38ba8 · Lavender #b4befe
+ *           Green #a6e3a1 · Blue #89b4fa
+ *  Surfaces: Base #1e1e2e · Mantle #181825 · Crust #11111b
+ *            Surface0 #313244 · Surface1 #45475a · Surface2 #585b70
+ *  Text: Text #cdd6f4 · Subtext1 #bac2de · Subtext0 #a6adc8
+ *        Overlay0 #6c7086
+ *  ============================================================ */
+
+/* ── Reset ──────────────────────────────────────────────── */
+* {
+  all: unset;
+  font-size: 14px;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  transition: background-color 200ms ease, color 200ms ease,
+  opacity 200ms ease;
+}
+
+/* ── Slider / Scale — squircle thumb, no shadows ────────── */
+scale {
+  margin: 0 7px;
+}
+
+scale trough {
+  margin: 0 1rem;
+  min-height: 6px;
+  min-width: 70px;
+  border-radius: 999px;
+  background-color: #313244;
+}
+
+trough {
+  background-color: #313244;
+}
+
+trough highlight {
+  background: #cba6f7;
+  border-radius: 999px;
+}
+
+trough slider {
+  margin: -9px;
+  min-width: 18px;
+  min-height: 18px;
+  border-radius: 30%;
+  background-color: #cba6f7;
+  transition: background-color 200ms ease, transform 150ms ease;
+}
+
+trough slider:hover {
+  background-color: #d4b8ff;
+  transform: scale(1.1);
+}
+
+trough slider:active {
+  background-color: #b4befe;
+  transform: scale(1.15);
+}
+
+/* ── Notification Popup ─────────────────────────────────── */
+.notification-background {
+  border-radius: 22px;
+  margin: 10px 14px;
+  padding: 0;
+  background: #181825;
+  color: #cdd6f4;
+}
+
+.notification-background .notification {
+  padding: 10px;
+  border-radius: 22px;
+}
+
+.notification-background .notification.critical {
+  background: #1f1520;
+}
+
+.notification-background .notification.low {
+  opacity: 0.55;
+}
+
+.notification .notification-content {
+  margin: 6px 8px;
+}
+
+.notification .notification-content overlay {
+  margin: 4px;
+  border-radius: 10px;
+}
+
+.notification-content .summary {
+  color: #cdd6f4;
+}
+
+.notification-content .time {
+  color: #6c7086;
+  font-size: 0.85em;
+}
+
+.notification-content .body {
+  color: #a6adc8;
+  font-size: 0.95em;
+}
+
+.notification > *:last-child > * {
+  min-height: 3rem;
+}
+
+/* Close button — red accent */
+.notification-background .close-button {
+  margin: 10px;
+  padding: 4px;
+  border-radius: 999px;
+  min-width: 22px;
+  min-height: 22px;
+  color: #11111b;
+  background-color: #f38ba8;
+}
+
+.notification-background .close-button:hover {
+  background-color: #f5a3bb;
+}
+
+.notification-background .close-button:active {
+  background-color: #eba0ac;
+}
+
+/* Action buttons — lavender on hover */
+.notification .notification-action {
+  border-radius: 12px;
+  color: #bac2de;
+  background-color: #313244;
+  margin: 4px;
+  padding: 7px 14px;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.notification .notification-action:hover {
+  background-color: #3d3f5c;
+  color: #b4befe;
+}
+
+.notification .notification-action:active {
+  background-color: #45475a;
+  color: #cba6f7;
+}
+
+/* Progress bars */
+.notification progress,
+.notification progressbar,
+.notification trough {
+  border-radius: 999px;
+  padding: 3px 0;
+}
+
+.notification.critical progress {
+  background-color: #f38ba8;
+}
+
+.notification.low progress,
+.notification.normal progress {
+  background-color: #89b4fa;
+}
+
+/* ── Control Center ─────────────────────────────────────── */
+.control-center {
+  border-radius: 24px;
+  padding: 18px;
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+  border: 1px solid #313244;
+}
+
+.control-center .notification-background {
+  border-radius: 16px;
+  margin: 4px 6px;
+  background: #181825;
+}
+
+.control-center .notification-background .notification {
+  border-radius: 16px;
+}
+
+.control-center .notification-background .notification.low {
+  opacity: 0.5;
+}
+
+.control-center .notification-group {
+  margin-top: 12px;
+}
+
+.control-center .notification-group:focus .notification-background {
+  background-color: #1e1e2e;
+}
+
+/* Title — mauve */
+.control-center .widget-title > label {
+  color: #cba6f7;
+  font-size: 1.15em;
+}
+
+/* Clear button */
+.control-center .widget-title button {
+  border-radius: 10px;
+  color: #a6adc8;
+  background-color: #1e1e2e;
+  padding: 5px 10px;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.control-center .widget-title button:hover {
+  background-color: #313244;
+  color: #cdd6f4;
+}
+
+.control-center .widget-title button:active {
+  background-color: #45475a;
+}
+
+/* Scrollbar — hidden */
+scrollbar {
+  opacity: 0;
+  min-width: 0;
+  min-height: 0;
+}
+
+scrollbar slider {
+  min-width: 0;
+  min-height: 0;
+  opacity: 0;
+}
+
+/* ── DND Widget — green accent ───────────────────────────── */
+.widget-dnd {
+  margin-top: 6px;
+  border-radius: 10px;
+  font-size: 1em;
+  color: #a6adc8;
+}
+
+.widget-dnd > switch {
+  border-radius: 999px;
+  background: #313244;
+  transition: background-color 250ms ease;
+}
+
+.widget-dnd > switch:checked {
+  background: #a6e3a1;
+}
+
+.widget-dnd > switch slider {
+  background: #cdd6f4;
+  border-radius: 999px;
+  transition: transform 200ms ease;
+}
+
+.widget-dnd > switch:checked slider {
+  background: #11111b;
+}
+
+/* ── MPRIS ───────────────────────────────────────────────── */
+.widget-mpris-player {
+  background: #181825;
+  border-radius: 18px;
+  color: #cdd6f4;
+  overflow: hidden;
+}
+
+.mpris-overlay {
+  background-color: rgba(17, 17, 27, 0.88);
+  padding: 14px 12px;
+}
+
+.widget-mpris-album-art {
+  -gtk-icon-size: 100px;
+  border-radius: 12px;
+  margin: 0 10px;
+}
+
+.widget-mpris-title {
+  font-size: 1.05em;
+  color: #89b4fa;
+}
+
+.widget-mpris-subtitle {
+  font-size: 0.95em;
+  color: #a6adc8;
+}
+
+.widget-mpris button {
+  border-radius: 999px;
+  color: #bac2de;
+  margin: 0 3px;
+  padding: 5px;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.widget-mpris button image {
+  -gtk-icon-size: 1.5rem;
+}
+
+.widget-mpris button:hover {
+  background-color: #1e1e2e;
+  color: #cba6f7;
+}
+
+.widget-mpris button:active {
+  background-color: #313244;
+  color: #b4befe;
+}
+
+.widget-mpris button:disabled {
+  opacity: 0.3;
+}
+
+.widget-mpris .notification progress {
+  background-color: #cba6f7;
+}
+
+/* ── Menu Bar ────────────────────────────────────────────── */
+.widget-menubar > box > .menu-button-bar > button > label {
+  font-size: 2.8rem;
+  padding: 0.4rem 1.8rem;
+}
+
+.widget-menubar > box > .menu-button-bar > :last-child {
+  color: #f38ba8;
+}
+
+/* ── Power / Screenshot Buttons ─────────────────────────── */
+.power-buttons button:hover,
+.powermode-buttons button:hover,
+.screenshot-buttons button:hover {
+  background: #1e1e2e;
+  border-radius: 12px;
+}
+
+/* ── Label Widget ────────────────────────────────────────── */
+.control-center .widget-label > label {
+  color: #bac2de;
+  font-size: 1.6rem;
+}
+
+/* ── Buttons Grid — even spacing ─────────────────────────── */
+.widget-buttons-grid {
+  padding: 0.6rem 0;
+}
+
+.widget-buttons-grid > flowbox {
+  column-spacing: 6px;
+  row-spacing: 6px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild {
+  padding: 0;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  border-radius: 14px;
+  background-color: #1e1e2e;
+  padding: 10px 14px;
+  transition: background-color 150ms ease;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background-color: #313244;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:active {
+  background-color: #45475a;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button label {
+  font-size: 1.8rem;
+}
+
+/* ── Volume — monochrome blue ────────────────────────────── */
+.widget-volume {
+  padding: 0.6rem 0;
+}
+
+.widget-volume label {
+  color: #89b4fa;
+  padding: 0 0.8rem;
+  font-size: 1.1rem;
+  min-width: 1.5rem;
+}
+
+.widget-volume trough {
+  background-color: #1e2a3a;
+}
+
+.widget-volume trough highlight {
+  background: #89b4fa;
+  border-radius: 999px;
+}
+
+.widget-volume trough slider {
+  background-color: #89b4fa;
+  border-radius: 30%;
+}
+
+.widget-volume trough slider:hover {
+  background-color: #a8cbff;
+}
+
+.widget-volume trough slider:active {
+  background-color: #b4befe;
+}
+
+/* ── Backlight — monochrome lavender ─────────────────────── */
+.widget-backlight trough {
+  background-color: #1e1e30;
+}
+
+.widget-backlight trough highlight {
+  background: #b4befe;
+  border-radius: 999px;
+}
+
+.widget-backlight trough slider {
+  background-color: #b4befe;
+  border-radius: 30%;
+}
+
+.widget-backlight trough slider:hover {
+  background-color: #cbc8ff;
+}
+
+.widget-backlight trough slider:active {
+  background-color: #cba6f7;
+}
+
+.widget-backlight label {
+  font-size: 1.1rem;
+  color: #b4befe;
+  padding: 0 0.8rem;
+  min-width: 1.5rem;
+}
+
+.widget-backlight .KB {
+  padding-bottom: 0.8rem;
+}
+
+/* ── Misc ────────────────────────────────────────────────── */
+.image {
+  padding-right: 0.4rem;
+}
+
+
+/* ── Transparent window surface ──────────────────────────── */
+.blank-window {
+  background: transparent;
+}
