@@ -11,7 +11,7 @@ Installation
 Run the following commands in your terminal to clone the repository and run the installer:
 bash
 
-git clone https://github.com
+git clone https://github.com/Usernames-are-useful/Fedora-HyprMocha-Blue/edit/main/README.md
 cd Fedora-HyprMocha-Blue
 chmod +x install.sh
 ./install.sh
