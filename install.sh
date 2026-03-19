@@ -4,7 +4,6 @@
 #  https://github.com/Usernames-are-useful/HyprMocha-Blue
 #
 #  For Fedora 41+
-#  (your friend's version)
 # ============================================================
 
 set -euo pipefail
